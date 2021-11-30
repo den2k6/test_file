@@ -9,3 +9,5 @@
 - 出力用ファイルは常に上書きする（追記しない）
 - Mac でバックスラッシュを入力する方法
   - ⌥ + ¥(option + ¥)
+- .DS_Store を無視する方法
+  - ~/.config/git/ignore に `.DS_Store` と書く
