@@ -2,18 +2,20 @@
 import sys
 
 def main():
-  print(sys.version)
-  if len(sys.argv) != 2:
-    print(f'Usage: python3 {sys.argv[0]} <filename>\n')
+  if len(sys.argv) != 3:
+    print('Convert shift-jis file to utf-8 file.')
+    print(f'Usage: python3 {sys.argv[0]} <in-file(shift-jis)> <out-file(utf-8)>\n')
     exit()
   else:
-    target_file = sys.argv[1]
-
+    infile = sys.argv[1]
+    outfile = sys.argv[2]
+ 
   try:
-    with open(target_file) as fi, open('python_out.txt', 'w') as fo:
+    with open(infile, encoding='shift_jis') as fi, open(outfile, 'w') as fo:
+    # with open(infile) as fi, open(outfile, 'w', encoding='shift_jis') as fo:
       fo.write(fi.read())
   except  FileNotFoundError as e:
-    print(f'File({target_file}) not found.\n{e}\n')
+    print(f'File({infile}) not found.\n{e}\n')
   except Exception as e:
     print(e)
 
